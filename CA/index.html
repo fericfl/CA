@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--<meta http-equiv="refresh" content="30">-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Test - Computer Architecture</title>
+<style type="text/css">
+<!--
+.style2 {
+        font-size: large;
+        font-weight: bold;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+-->
+</style>
+</head>
+<body>
+<h1>Practical activity test</h1>
+<h2>Fall 2022</h2>
+<h3>Working procedure</h3>
+Archive all solution files (zip, 7zip, rar) and attach the archive in the Virtual Campus.
+<br/>
+<br/>
+
+
+<span class="style2"><u>Problem 1 (3 points) </u></span>
+<br/>
+Design, using Verilog, a combinatinal module, called <b>comb</b> (saved in the <code>comb.v</code> file) having a 4-bit input <code>i</code>, and a 4-bit output <code>o</code>. 
+<!--
+Generate module's outputs with <code>assign</code> instructions using only bitwise operators (<code>~</code>,<code>&amp;</code>,<code>|</code>,<code>^</code>). Write down on a sheet of paper the 4 minimizations for the ouptuts and <b>attach</b> a picture of the paper to the problem folder in your personal folder. 
+-->
+For all unspecified input lines, the output is expected to have a decimal value of <u>3</u>. Build a testbench for exhaustive evaluation and the script for runing the testbench. The module's behaviour is described by the truth table bellow:<br/>
+
+<table width="240" border="1">
+  <tr>
+    <th colspan="4" scope="col">Inputs</th>
+    <th colspan="4" scope="col">Outputs</th>
+  </tr>
+
+    <tr>
+    <th scope="col"><code>i<sub>3</sub></code></th>
+    <th scope="col"><code>i<sub>2</sub></code></th>
+    <th scope="col"><code>i<sub>1</sub></code></th>
+    <th scope="col"><code>i<sub>0</sub></code></th>
+    <th scope="col"><code>o<sub>3</sub></code></th>
+    <th scope="col"><code>o<sub>2</sub></code></th>
+    <th scope="col"><code>o<sub>1</sub></code></th>
+    <th scope="col"><code>o<sub>0</sub></code></th>
+  </tr>
+
+
+
+    <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+
+</table> 
+
+
+<br/>
+
+<span class="style2"><u>Problem 2 (4 points)</u></span>
+<br/>
+Design, using Verilog, the Linear Feedback Shift Register (LFSR) depicted in the figure bellow (click the figure for opening 
+it in full-size). The LFSR has an synchronous 
+reset input which is active-high. Implement the D-type flip-flop to be used by the LFSR, as well. The LFSR module will be named <u><b>lfsr</b></u> (saved in the <code>lfsr.v</code> file). Design the structure so that after reset, the initial value of the LFSR should be <u>0xb3</u>. If deemed necessary, additional modules can be constructed. Determine the periodicity of LFSR's output sequence (how many clock cycles are necesarry before the output sequence starts repeating itself).
+<br/>
+<a href="img/reg.svg" target="_blank"><img src="img/reg.svg" alt="" width="500px" style="border:1px solid black;"/></a>
+
+<br/>
+<br/>
+
+<span class="style2"><u>Problem 3 (2 points)</u></span>
+<br/>
+Design, using Verilog, a unit for assembling 29-bit packets into a 464-bit block (464 = 29 * 16), called <u><b>blkasm</b></u> (saved in the <code>blkasm.v</code> file). The unit has a 33-bit input, <code>data</code>, a 1-bit input <code>avl</code> (available) which is active when new data is available at the <code>data</code> input and a 464-bit output <code>blk</code> (block). The <code>data</code> input consists of 2 fields: a 29-bit field, representing a packet, preceded by a 4-bit field, indicating the position of the packet within the block (a position of 0 means the packet occupy the least significant 29 bits of the block). The packets can be received in any order, and for each packet position a single packet is received. While the block is not completly assembled, the output <code>blk</code> is kept in high impedance (<code>'bz</code>). When the complete block is assembled, it is delivered at output <code>blk</code>. A solution that only uses registers (<code>rgst</code> module), counters (<code>cntr</code> module), ROMs (<code>rom</code> module with content file), decoders (<code>dec</code> module) and continuous assignments, without using <code>always</code> blocks, is considered a plus.
+
+
+
+</body>
+</html>

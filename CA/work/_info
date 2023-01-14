@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/eric/Documents/University/University/CA/CA
+vrom
+Z1 !s110 1670244892
+!i10b 1
+!s100 YWPf;fILk^[]92=iM4kXn2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IGN_kkPYOCWfEa_n18RJ8k1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1670244884
+Z5 8rom.v
+Z6 From.v
+!i122 0
+L0 1 12
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1670244892.000000
+!s107 rom.v|
+Z9 !s90 -reportprogress|300|rom.v|
+!i113 1
+Z10 tCvgOpt 0
+vrom_tb
+R1
+!i10b 1
+!s100 ;ZT@:3O[HYJV2FYfCgiNk2
+R2
+IkFldzJMEO?XQD22MJLleF3
+R3
+R0
+R4
+R5
+R6
+!i122 0
+L0 14 25
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 rom.v|
+R9
+!i113 1
+R10
